@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="jumbotron">
+ {% for todo in todolist %}
+ <a href="{% url 'viewtodo' todo.id  %}">
+  {% if todo.important %}<b>{% endif %}{{todo.title}}
+    {% if todo.details %}
+    - {{todo.details}}
+    {% endif %}
+  {% if todo.important %}</b>{% endif %}
+ </a>
+ <br>
+ {{todo.created|date:'d M o'}}
+ <br>
+ <br>
+ {% endfor %}
+</div>
+{% endblock %}

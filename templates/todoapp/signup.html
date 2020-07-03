@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block body %}
+<style media="screen">
+  body{
+    background-color: white;
+  }
+</style>
+<div class="page-wrapper bg-dark p-t-100 p-b-50" style="background-color: white;">
+    <div class="wrapper wrapper--w900" style="background-color: white;">
+        <div class="card card-6" style="background-color: white;">
+            <div class="card-heading" style="background-color: white;">
+                <h2 class="title" style=" text-align: center; color:black">Sign up Form</h2>
+
+            </div>
+            <div align="center">
+
+
+            <div class="card-body" style="height: 80%; width:60%">
+                <form action="{% url 'usersignup' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="form-row" style="color:red;">{{error}}</div>
+                    <div class="form-row">
+                        <div class="name">Username:</div>
+                        <div class="value">
+                            <input type="text" class="input--style-6" name="username" value="">
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Password:</div>
+                        <div class="value">
+
+                          <input type="password" class="input--style-6" name="password1" value="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Password Again:</div>
+                        <div class="value">
+                            <input type="password" class="input--style-6" name="password2" value="">
+                        </div>
+                    </div>
+                    <div class="card-footer" >
+                        <button class="btn btn--radius-2 btn--blue-2" style="height:50px; width:100px" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

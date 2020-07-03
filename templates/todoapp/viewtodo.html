@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="jumbotron">
+  <h2>{{todo.title}}</h2>
+  <div class="container">
+    <form method="POST">
+      {{todoform.as_p}}
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary" name="button">Update</button>
+    </form>
+    <form action="{% url 'completetodo' todo.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary" name="button">Completed</button>
+    </form>
+    <form action="{% url 'deletetodo' todo.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary" name="button">Delete</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="jumbotron">
+  <h3>{{error}}</h3>
+  <form action="{% url 'createtodo' %}" method="POST">
+    {{form.as_p}}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary" name="button">Create</button>
+  </form>
+</div>
+
+{% endblock %}
